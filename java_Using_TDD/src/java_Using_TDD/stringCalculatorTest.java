@@ -25,4 +25,26 @@ public class stringCalculatorTest
 			}
 
 	}
+	@Test
+	public void test3()
+	{
+		{
+			stringCalculator c=new stringCalculator();
+			int expectedvalue=3;
+			int actualvalue=c.addString("1,2");	
+			assertEquals(expectedvalue,actualvalue);
+			}
+
+	}
+	@Test
+	public void test4()
+	{
+		{
+			stringCalculator c=new stringCalculator();
+			int expectedvalue=3;
+			int actualvalue=c.addString("1\n2");	
+			assertEquals(expectedvalue,actualvalue);
+			}
+
+	}
 }
