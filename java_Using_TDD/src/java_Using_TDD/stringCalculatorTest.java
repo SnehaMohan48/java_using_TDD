@@ -47,4 +47,13 @@ public class stringCalculatorTest
 			}
 
 	}
+	@Test
+	public void test5()throws Exception
+	{
+		{
+			stringCalculator c=new stringCalculator();
+			c.addString("-1,2");
+			}
+
+	}
 }

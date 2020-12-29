@@ -9,15 +9,12 @@ public int addString(String input)
 	{
 		return 0;
 	}
-	else if(input.length()==1)
-	{
-	return Integer.parseInt(input);
-	}
+
 	else if(numbers.length>1)
 	{
 		return result(numbers);
 	}
-	return Integer.parseInt(input);		
+	return stringToInt(input);		
 }
 private int result(String[] numbers)
 {
@@ -27,6 +24,14 @@ private int result(String[] numbers)
 		result += Integer.parseInt(currentNumber);
 	}
 	return result;
+}
+public int stringToInt(String input)
+{
+	int num=Integer.parseInt(input);
+	if(num<0)
+		throw new IllegalArgumentException("negatives not allowed");
+	else
+		return num;
 }
 }
 
