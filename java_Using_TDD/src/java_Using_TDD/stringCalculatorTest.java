@@ -1,13 +1,20 @@
 package java_Using_TDD;
 import static org.junit.Assert.*;
 import org.junit.Test;
+import org.junit.Before;
 public class stringCalculatorTest
 {
+	
+	private stringCalculator c;
+	@Before
+	public void initialize() {
+		c = new stringCalculator();
+	}
 	@Test
-	public void test1()
+	public void emptyInputCase()
 	{
 		{
-			stringCalculator c=new stringCalculator();
+			
 			int expectedvalue=0;
 			int actualvalue=c.addString("");	
 			assertEquals(expectedvalue,actualvalue);
@@ -15,10 +22,9 @@ public class stringCalculatorTest
 
 	}
 	@Test
-	public void test2()
+	public void singleInputCase()
 	{
 		{
-			stringCalculator c=new stringCalculator();
 			int expectedvalue=1;
 			int actualvalue=c.addString("1");	
 			assertEquals(expectedvalue,actualvalue);
@@ -26,10 +32,9 @@ public class stringCalculatorTest
 
 	}
 	@Test
-	public void test3()
+	public void twoInputsCase()
 	{
 		{
-			stringCalculator c=new stringCalculator();
 			int expectedvalue=3;
 			int actualvalue=c.addString("1,2");	
 			assertEquals(expectedvalue,actualvalue);
@@ -37,10 +42,19 @@ public class stringCalculatorTest
 
 	}
 	@Test
-	public void test4()
+	public void multipleInputsCase()
 	{
 		{
-			stringCalculator c=new stringCalculator();
+			int expectedvalue=6;
+			int actualvalue=c.addString("1,2,3");	
+			assertEquals(expectedvalue,actualvalue);
+			}
+
+	}
+	@Test
+	public void newLineDelimiterCase()
+	{
+		{
 			int expectedvalue=3;
 			int actualvalue=c.addString("1\n2");	
 			assertEquals(expectedvalue,actualvalue);
@@ -48,19 +62,17 @@ public class stringCalculatorTest
 
 	}
 	@Test(expected = IllegalArgumentException.class)
-	public void test5()throws Exception
+	public void negativeInputCase()throws Exception
 	{
 		{
-			stringCalculator c=new stringCalculator();
 			c.addString("-1,2");
 			}
 
 	}
 	@Test
-	public void test6()
+	public void ignoreValuesGreaterThan1000()
 	{
 		{
-			stringCalculator c=new stringCalculator();
 			int expectedvalue=2;
 			int actualvalue=c.addString("1001,2");	
 			assertEquals(expectedvalue,actualvalue);
