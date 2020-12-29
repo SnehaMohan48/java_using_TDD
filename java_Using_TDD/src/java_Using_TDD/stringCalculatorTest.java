@@ -47,12 +47,23 @@ public class stringCalculatorTest
 			}
 
 	}
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void test5()throws Exception
 	{
 		{
 			stringCalculator c=new stringCalculator();
 			c.addString("-1,2");
+			}
+
+	}
+	@Test
+	public void test6()
+	{
+		{
+			stringCalculator c=new stringCalculator();
+			int expectedvalue=2;
+			int actualvalue=c.addString("1001,2");	
+			assertEquals(expectedvalue,actualvalue);
 			}
 
 	}

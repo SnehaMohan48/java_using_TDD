@@ -21,7 +21,11 @@ private int result(String[] numbers)
 	int result=0;
 	for(String currentNumber:numbers)
 	{
-		result += Integer.parseInt(currentNumber);
+		if(stringToInt(currentNumber)>1000)
+		{
+			continue;
+		}
+		result += stringToInt(currentNumber);
 	}
 	return result;
 }
